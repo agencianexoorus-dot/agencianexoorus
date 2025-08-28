@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta name="facebook-domain-verification" content="zxp6lm8r4ko5mfip2428nl7lqmq76v" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agencia Nexo Orus - Transformamos Ideas en Realidad | Mar del Plata</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0369a1 50%, #0284c7 75%, #0ea5e9 100%);
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .floating-card {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .pulse-blue {
+      animation: pulse-blue 2s infinite;
+    }
+    
+    @keyframes pulse-blue {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .diagonal-section {
+      clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+    }
+    
+    .zigzag-section {
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    
+    .blob-bg {
+      background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(96, 165, 250, 0.3) 0%, transparent 50%);
+    }
+    
+    .morphing-btn {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .morphing-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+    }
+    
+    .service-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      transition: all 0.4s ease;
+    }
+    
+    .service-card:hover {
+      background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(30, 41, 59, 0.9));
+      transform: translateY(-10px) rotateY(5deg);
+      box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+    }
+    
+    .timeline-line {
+      background: linear-gradient(to bottom, #3b82f6, #60a5fa, #93c5fd, #dbeafe);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-white overflow-x-hidden">
+
+  <!-- NAVEGACIÓN FLOTANTE MODERNA -->
+  <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 glass-effect rounded-full px-8 py-4" x-data="{ mobileOpen: false }">
+    <div class="flex items-center justify-between">
+      <div class="text-xl font-bold text-gradient">NEXO ORUS</div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="#inicio" class="text-blue-200 hover:text-white transition duration-300 font-medium">Inicio</a>
+        <a href="#servicios" class="text-blue-200 hover:text-white transition duration-300 font-medium">Servicios</a>
+        <a href="#nosotros" class="text-blue-200 hover:text-white transition duration-300 font-medium">Nosotros</a>
+        <a href="#proyectos" class="text-blue-200 hover:text-white transition duration-300 font-medium">Proyectos</a>
+        <a href="#contacto" class="text-blue-200 hover:text-white transition duration-300 font-medium">Contacto</a>
+        <a href="https://www.facebook.com/profile.php?id=61579959390203" target="_blank" class="bg-blue-600 hover:bg-blue-700 p-2 rounded-full morphing-btn">
+          <i class="fab fa-facebook-f text-white"></i>
+        </a>
+          </div>
+      
+      <!-- Mobile Menu Button -->
+      <button @click="mobileOpen = !mobileOpen" class="lg:hidden text-white">
+        <i class="fas fa-bars"></i>
+      </button>
+        </div>
+    
+    <!-- Mobile Menu -->
+    <div x-show="mobileOpen" x-transition class="lg:hidden mt-4 pt-4 border-t border-blue-400/30">
+      <div class="flex flex-col space-y-3">
+        <a href="#inicio" class="text-blue-200 hover:text-white transition">Inicio</a>
+        <a href="#servicios" class="text-blue-200 hover:text-white transition">Servicios</a>
+        <a href="#nosotros" class="text-blue-200 hover:text-white transition">Nosotros</a>
+        <a href="#proyectos" class="text-blue-200 hover:text-white transition">Proyectos</a>
+        <a href="#contacto" class="text-blue-200 hover:text-white transition">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION COMPLETAMENTE NUEVO -->
+  <section id="inicio" class="min-h-screen hero-gradient relative overflow-hidden flex items-center">
+    <!-- Partículas animadas de fondo -->
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+      <div class="absolute top-3/4 right-1/4 w-3 h-3 bg-blue-300 rounded-full animate-pulse"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-1 h-1 bg-white rounded-full animate-bounce"></div>
+      <div class="absolute top-1/2 right-1/3 w-2 h-2 bg-blue-500 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Lado izquierdo - Contenido -->
+        <div class="space-y-8" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 500)">
+          <div x-show="loaded" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0 -translate-y-10" x-transition:enter-end="opacity-100 translate-y-0">
+            <h1 class="text-6xl lg:text-7xl font-black leading-tight">
+              <span class="text-white">AGENCIA</span><br>
+              <span class="text-gradient">NEXO ORUS</span>
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mt-4"></div>
+      </div>
+      
+          <div x-show="loaded" x-transition:enter="transition ease-out duration-1000 delay-300" x-transition:enter-start="opacity-0 -translate-y-10" x-transition:enter-end="opacity-100 translate-y-0">
+            <p class="text-xl lg:text-2xl text-blue-100 font-light leading-relaxed">
+              Transformamos <span class="text-blue-300 font-semibold">ideas innovadoras</span> en 
+              <span class="text-blue-300 font-semibold">soluciones digitales</span> que impulsan tu negocio hacia el futuro.
+          </p>
+        </div>
+          
+          <div x-show="loaded" x-transition:enter="transition ease-out duration-1000 delay-500" x-transition:enter-start="opacity-0 -translate-y-10" x-transition:enter-end="opacity-100 translate-y-0" class="flex flex-col sm:flex-row gap-4">
+            <button class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold morphing-btn pulse-blue">
+              <i class="fas fa-rocket mr-2"></i>
+              Comenzar Proyecto
+            </button>
+            <button class="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-slate-900 px-8 py-4 rounded-xl font-semibold morphing-btn">
+              <i class="fas fa-play mr-2"></i>
+              Ver Portafolio
+            </button>
+          </div>
+          
+          <!-- Info de contacto en cards flotantes -->
+          <div x-show="loaded" x-transition:enter="transition ease-out duration-1000 delay-700" x-transition:enter-start="opacity-0 -translate-y-10" x-transition:enter-end="opacity-100 translate-y-0" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+            <div class="glass-effect rounded-lg p-4 floating-card">
+              <i class="fas fa-map-marker-alt text-blue-400 text-lg mb-2"></i>
+              <p class="text-xs text-blue-200">Mar del Plata</p>
+              <p class="text-sm font-medium">Mosconi 3630</p>
+            </div>
+            <div class="glass-effect rounded-lg p-4 floating-card" style="animation-delay: 0.5s;">
+              <i class="fas fa-phone text-blue-400 text-lg mb-2"></i>
+              <p class="text-xs text-blue-200">Teléfono</p>
+              <p class="text-sm font-medium">+54 9 11 7218 6215</p>
+            </div>
+            <div class="glass-effect rounded-lg p-4 floating-card" style="animation-delay: 1s;">
+              <i class="fas fa-envelope text-blue-400 text-lg mb-2"></i>
+              <p class="text-xs text-blue-200">Email</p>
+              <p class="text-sm font-medium">Agencianexoorus@gmail.com</p>
+            </div>
+            <div class="glass-effect rounded-lg p-4 floating-card" style="animation-delay: 1.5s;">
+              <i class="fas fa-id-card text-blue-400 text-lg mb-2"></i>
+              <p class="text-xs text-blue-200">CUIL</p>
+              <p class="text-sm font-medium">20-44722089-0</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Lado derecho - Visual -->
+        <div class="relative" x-data="{ imageLoaded: false }" x-init="setTimeout(() => imageLoaded = true, 1000)">
+          <div x-show="imageLoaded" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" class="relative">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Equipo profesional de Nexo Orus" 
+                 class="rounded-3xl shadow-2xl floating-card">
+            <div class="absolute -top-6 -right-6 bg-blue-500 text-white p-6 rounded-2xl glass-effect">
+              <i class="fas fa-chart-line text-3xl mb-2"></i>
+              <p class="font-bold">+150%</p>
+              <p class="text-sm">Crecimiento</p>
+      </div>
+            <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-2xl glass-effect">
+              <i class="fas fa-users text-3xl mb-2"></i>
+              <p class="font-bold">50+</p>
+              <p class="text-sm">Clientes</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Indicador de scroll -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-white text-2xl"></i>
+      </div>
+    </section>
+
+  <!-- SERVICIOS CON DISEÑO HEXAGONAL -->
+  <section id="servicios" class="py-24 blob-bg relative">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-6">
+          <span class="text-gradient">Servicios Innovadores</span>
+        </h2>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Soluciones digitales de vanguardia que transforman la manera en que tu empresa se conecta con el mundo
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Servicio 1 -->
+        <div class="service-card rounded-2xl p-8 group">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-rocket text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Estrategia Digital</h3>
+          </div>
+          <p class="text-blue-200 mb-6 text-center">Desarrollamos estrategias digitales personalizadas que maximizan tu presencia online y generan resultados medibles.</p>
+          <ul class="space-y-3 text-blue-100">
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Análisis de mercado digital</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Planificación estratégica</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Implementación y seguimiento</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Optimización continua</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="service-card rounded-2xl p-8 group">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-code text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Desarrollo Web</h3>
+          </div>
+          <p class="text-blue-200 mb-6 text-center">Creamos sitios web modernos, responsivos y optimizados que convierten visitantes en clientes.</p>
+          <ul class="space-y-3 text-blue-100">
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Diseño UI/UX avanzado</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Desarrollo responsive</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Optimización SEO</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Integración de sistemas</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="service-card rounded-2xl p-8 group">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-chart-bar text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Marketing Digital</h3>
+          </div>
+          <p class="text-blue-200 mb-6 text-center">Campañas digitales inteligentes que aumentan tu visibilidad y generan conversiones reales.</p>
+          <ul class="space-y-3 text-blue-100">
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Social Media Management</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Publicidad digital PPC</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Email marketing automation</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Análisis y reporting</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="service-card rounded-2xl p-8 group">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-mobile-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Apps Móviles</h3>
+          </div>
+          <p class="text-blue-200 mb-6 text-center">Aplicaciones móviles nativas e híbridas que conectan tu negocio con tus clientes 24/7.</p>
+          <ul class="space-y-3 text-blue-100">
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Apps iOS y Android</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Apps híbridas React Native</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Integración API</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Mantenimiento y updates</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 5 -->
+        <div class="service-card rounded-2xl p-8 group">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-cloud text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Cloud Solutions</h3>
+          </div>
+          <p class="text-blue-200 mb-6 text-center">Soluciones en la nube escalables y seguras que modernizan tu infraestructura tecnológica.</p>
+          <ul class="space-y-3 text-blue-100">
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Migración a la nube</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Backup y recuperación</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Seguridad avanzada</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Monitoreo 24/7</li>
+          </ul>
+        </div>
+
+        <!-- Servicio 6 -->
+        <div class="service-card rounded-2xl p-8 group">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-cogs text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Automatización</h3>
+          </div>
+          <p class="text-blue-200 mb-6 text-center">Automatizamos procesos empresariales para aumentar la eficiencia y reducir costos operativos.</p>
+          <ul class="space-y-3 text-blue-100">
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Workflow automation</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>CRM integration</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Chatbots inteligentes</li>
+            <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-3"></i>Reporting automático</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTROS CON DISEÑO DIAGONAL -->
+  <section id="nosotros" class="diagonal-section bg-gradient-to-br from-slate-800 to-slate-900 py-32 relative">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        
+        <!-- Lado izquierdo - Contenido -->
+        <div class="space-y-8">
+          <h2 class="text-5xl font-bold">
+            <span class="text-white">Somos</span><br>
+            <span class="text-gradient">NEXO ORUS</span>
+          </h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+          
+          <p class="text-xl text-blue-100 leading-relaxed">
+            En <strong>Agencia Nexo Orus</strong>, somos pioneros en la transformación digital. 
+            Nuestro equipo de expertos combina creatividad, tecnología de vanguardia y estrategia 
+            para crear soluciones que no solo cumplen expectativas, sino que las superan.
+          </p>
+          
+          <p class="text-lg text-blue-200 leading-relaxed">
+            Ubicados en el corazón de <strong>Mar del Plata</strong>, trabajamos con empresas 
+            de todo el país, ayudándolas a navegar el complejo mundo digital con confianza y éxito.
+          </p>
+          
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 pt-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-400">3+</div>
+              <div class="text-blue-200">Años de experiencia</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-400">50+</div>
+              <div class="text-blue-200">Proyectos completados</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-400">98%</div>
+              <div class="text-blue-200">Satisfacción cliente</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Lado derecho - Timeline -->
+        <div class="relative">
+          <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+          
+          <div class="space-y-12">
+            <!-- 2021 -->
+            <div class="flex items-center space-x-6">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl relative z-10">
+                21
+              </div>
+              <div class="glass-effect rounded-xl p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Fundación</h3>
+                <p class="text-blue-200">Nacimos con la visión de democratizar la tecnología digital para empresas de Mar del Plata.</p>
+              </div>
+            </div>
+            
+            <!-- 2022 -->
+            <div class="flex items-center space-x-6">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl relative z-10">
+                22
+              </div>
+              <div class="glass-effect rounded-xl p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Expansión</h3>
+                <p class="text-blue-200">Ampliamos nuestros servicios y comenzamos a trabajar con clientes a nivel nacional.</p>
+              </div>
+            </div>
+            
+            <!-- 2023 -->
+            <div class="flex items-center space-x-6">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl relative z-10">
+                23
+              </div>
+              <div class="glass-effect rounded-xl p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Innovación</h3>
+                <p class="text-blue-200">Incorporamos IA y machine learning en nuestras soluciones empresariales.</p>
+              </div>
+            </div>
+            
+            <!-- 2024 -->
+            <div class="flex items-center space-x-6">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl relative z-10 pulse-blue">
+                24
+              </div>
+              <div class="glass-effect rounded-xl p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Liderazgo</h3>
+                <p class="text-blue-200">Nos consolidamos como líderes en transformación digital en la región.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  <!-- PROYECTOS DESTACADOS -->
+  <section id="proyectos" class="py-24 bg-slate-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-6">
+          <span class="text-gradient">Proyectos Destacados</span>
+        </h2>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Descubre algunos de nuestros trabajos más exitosos y cómo hemos transformado negocios
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Proyecto 1 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="E-commerce Platform" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-xl font-bold text-white mb-2">E-commerce Avanzado</h3>
+              <p class="text-blue-200 text-sm">Plataforma de comercio electrónico con IA integrada</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Proyecto 2 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="App Móvil" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-xl font-bold text-white mb-2">App de Productividad</h3>
+              <p class="text-blue-200 text-sm">Aplicación móvil para gestión empresarial</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Proyecto 3 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Sistema Web" 
+                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-xl font-bold text-white mb-2">Portal Corporativo</h3>
+              <p class="text-blue-200 text-sm">Sistema web integrado para gestión integral</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <button class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold morphing-btn">
+          <i class="fas fa-folder-open mr-2"></i>
+          Ver Portafolio Completo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS MODERNOS -->
+  <section class="py-24 blob-bg">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-6">
+          <span class="text-gradient">Lo Que Dicen Nuestros Clientes</span>
+        </h2>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Testimonios reales de empresas que han transformado su negocio con nosotros
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Testimonio 1 -->
+        <div class="glass-effect rounded-2xl p-8 floating-card">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                 alt="Carlos Mendez" 
+                 class="w-16 h-16 rounded-full border-4 border-blue-400 mr-4">
+            <div>
+              <h4 class="font-bold text-white text-lg">Carlos Méndez</h4>
+              <p class="text-blue-400 text-sm">CEO, TechStart Solutions</p>
+              <div class="flex text-yellow-400 text-sm mt-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-blue-100 italic leading-relaxed">
+            "Nexo Orus transformó completamente nuestra presencia digital. Nuestras ventas online aumentaron un 200% en solo 6 meses. Su equipo es excepcional."
+          </p>
+          </div>
+          
+        <!-- Testimonio 2 -->
+        <div class="glass-effect rounded-2xl p-8 floating-card" style="animation-delay: 0.5s;">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                 alt="Ana Rodriguez" 
+                 class="w-16 h-16 rounded-full border-4 border-blue-400 mr-4">
+            <div>
+              <h4 class="font-bold text-white text-lg">Ana Rodríguez</h4>
+              <p class="text-blue-400 text-sm">Directora, Innovate Corp</p>
+              <div class="flex text-yellow-400 text-sm mt-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-blue-100 italic leading-relaxed">
+            "La app móvil que desarrollaron revolucionó la forma en que nuestros clientes interactúan con nosotros. Profesionalismo y calidad garantizada."
+          </p>
+          </div>
+          
+        <!-- Testimonio 3 -->
+        <div class="glass-effect rounded-2xl p-8 floating-card" style="animation-delay: 1s;">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/men/21.jpg" 
+                 alt="Miguel Torres" 
+                 class="w-16 h-16 rounded-full border-4 border-blue-400 mr-4">
+            <div>
+              <h4 class="font-bold text-white text-lg">Miguel Torres</h4>
+              <p class="text-blue-400 text-sm">Fundador, Digital Plus</p>
+              <div class="flex text-yellow-400 text-sm mt-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-blue-100 italic leading-relaxed">
+            "Su estrategia de marketing digital nos posicionó como líderes en nuestro sector. Los resultados hablan por sí solos. Altamente recomendado."
+          </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- CONTACTO MODERNO -->
+  <section id="contacto" class="zigzag-section bg-gradient-to-br from-slate-800 to-slate-900 py-32">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-6">
+          <span class="text-gradient">¿Listo Para Transformar Tu Negocio?</span>
+        </h2>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Conecta con nosotros y descubre cómo podemos llevar tu empresa al siguiente nivel digital
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        
+        <!-- Formulario -->
+        <div class="glass-effect rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-white mb-6">Envíanos un Mensaje</h3>
+          <form class="space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <input type="text" placeholder="Nombre" 
+                       class="w-full bg-slate-800/50 border border-blue-400/30 rounded-lg px-4 py-3 text-white placeholder-blue-300 focus:border-blue-400 focus:outline-none transition">
+              </div>
+              <div>
+                <input type="email" placeholder="Email" 
+                       class="w-full bg-slate-800/50 border border-blue-400/30 rounded-lg px-4 py-3 text-white placeholder-blue-300 focus:border-blue-400 focus:outline-none transition">
+              </div>
+            </div>
+            <div>
+              <input type="tel" placeholder="Teléfono" 
+                     class="w-full bg-slate-800/50 border border-blue-400/30 rounded-lg px-4 py-3 text-white placeholder-blue-300 focus:border-blue-400 focus:outline-none transition">
+            </div>
+            <div>
+              <select class="w-full bg-slate-800/50 border border-blue-400/30 rounded-lg px-4 py-3 text-white focus:border-blue-400 focus:outline-none transition">
+                <option>Selecciona un servicio</option>
+                <option>Estrategia Digital</option>
+                <option>Desarrollo Web</option>
+                <option>Marketing Digital</option>
+                <option>Apps Móviles</option>
+                <option>Cloud Solutions</option>
+                <option>Automatización</option>
+              </select>
+            </div>
+            <div>
+              <textarea placeholder="Cuéntanos sobre tu proyecto..." rows="4"
+                        class="w-full bg-slate-800/50 border border-blue-400/30 rounded-lg px-4 py-3 text-white placeholder-blue-300 focus:border-blue-400 focus:outline-none transition resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-lg font-semibold morphing-btn">
+              <i class="fas fa-paper-plane mr-2"></i>
+              Enviar Mensaje
+            </button>
+          </form>
+          </div>
+        
+        <!-- Info de contacto -->
+        <div class="space-y-8">
+          
+          <!-- Dirección -->
+          <div class="flex items-start space-x-6 glass-effect rounded-xl p-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-lg mb-2">Nuestra Oficina</h4>
+              <p class="text-blue-200">Mosconi 3630</p>
+              <p class="text-blue-200">Mar del Plata, Buenos Aires</p>
+            </div>
+          </div>
+          
+          <!-- Teléfono -->
+          <div class="flex items-start space-x-6 glass-effect rounded-xl p-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-phone text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-lg mb-2">Teléfono</h4>
+              <p class="text-blue-200">+54 9 11 7218 6215</p>
+              <p class="text-blue-300 text-sm">Lun - Vie: 9:00 - 18:00</p>
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div class="flex items-start space-x-6 glass-effect rounded-xl p-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-envelope text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-lg mb-2">Email</h4>
+              <p class="text-blue-200">Agencianexoorus@gmail.com</p>
+              <p class="text-blue-300 text-sm">Respuesta en 24 horas</p>
+            </div>
+          </div>
+          
+          <!-- Redes sociales -->
+          <div class="flex items-start space-x-6 glass-effect rounded-xl p-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-share-alt text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-lg mb-2">Síguenos</h4>
+              <div class="flex space-x-4">
+                <a href="https://www.facebook.com/profile.php?id=61579959390203" target="_blank" 
+                   class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition">
+                  <i class="fab fa-facebook-f text-white"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition">
+                  <i class="fab fa-instagram text-white"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition">
+                  <i class="fab fa-linkedin text-white"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  <!-- FOOTER FUTURISTA -->
+  <footer class="bg-slate-900 border-t border-blue-400/20 py-16">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Logo y descripción -->
+        <div class="lg:col-span-2">
+          <div class="text-3xl font-bold text-gradient mb-4">AGENCIA NEXO ORUS</div>
+          <p class="text-blue-200 leading-relaxed mb-6">
+            Transformamos ideas en realidades digitales. Somos tu socio estratégico 
+            en la revolución tecnológica que está redefiniendo los negocios del futuro.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61579959390203" target="_blank" 
+               class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 morphing-btn">
+              <i class="fab fa-facebook-f text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 morphing-btn">
+              <i class="fab fa-instagram text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 morphing-btn">
+              <i class="fab fa-linkedin text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 morphing-btn">
+              <i class="fab fa-twitter text-white"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Servicios -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Servicios</h4>
+          <ul class="space-y-2 text-blue-200">
+            <li><a href="#" class="hover:text-white transition">Estrategia Digital</a></li>
+            <li><a href="#" class="hover:text-white transition">Desarrollo Web</a></li>
+            <li><a href="#" class="hover:text-white transition">Marketing Digital</a></li>
+            <li><a href="#" class="hover:text-white transition">Apps Móviles</a></li>
+            <li><a href="#" class="hover:text-white transition">Cloud Solutions</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contacto -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Contacto</h4>
+          <div class="space-y-2 text-blue-200">
+            <p><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>Mosconi 3630, Mar del Plata</p>
+            <p><i class="fas fa-phone text-blue-400 mr-2"></i>+54 9 11 7218 6215</p>
+            <p><i class="fas fa-envelope text-blue-400 mr-2"></i>Agencianexoorus@gmail.com</p>
+            <p><i class="fas fa-id-card text-blue-400 mr-2"></i>CUIL: 20-44722089-0</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="border-t border-blue-400/20 pt-8 flex flex-col lg:flex-row justify-between items-center">
+        <p class="text-blue-300 mb-4 lg:mb-0">
+          © 2024 Agencia Nexo Orus. Todos los derechos reservados.
+        </p>
+        <div class="flex space-x-6 text-blue-300 text-sm">
+          <a href="#" class="hover:text-white transition">Política de Privacidad</a>
+          <a href="#" class="hover:text-white transition">Términos de Servicio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/5491172186215" target="_blank" 
+       class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl morphing-btn">
+      <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
+  </div>
+
+</body>
+</html>
