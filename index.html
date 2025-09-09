@@ -95,7 +95,7 @@
   <!-- NAVEGACIÓN FLOTANTE MODERNA -->
   <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 glass-effect rounded-full px-8 py-4" x-data="{ mobileOpen: false }">
     <div class="flex items-center justify-between">
-      <div class="text-xl font-bold text-gradient">NEXO ORUS</div>
+      <div class="text-xl font-bold text-gradient">AGENCIA NEXO ORUS</div>
       
       <!-- Desktop Menu -->
       <div class="hidden lg:flex items-center space-x-8">
@@ -143,11 +143,10 @@
         <!-- Lado izquierdo - Contenido -->
         <div class="space-y-8" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 500)">
           <div x-show="loaded" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0 -translate-y-10" x-transition:enter-end="opacity-100 translate-y-0">
-            <h1 class="text-6xl lg:text-7xl font-black leading-tight">
-              <span class="text-white">AGENCIA</span><br>
-              <span class="text-gradient">NEXO ORUS</span>
+            <h1 class="text-7xl lg:text-8xl font-black leading-tight mb-8">
+              <span class="text-gradient">AGENCIA NEXO ORUS</span>
             </h1>
-            <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mt-4"></div>
+            <div class="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mt-4"></div>
       </div>
       
           <div x-show="loaded" x-transition:enter="transition ease-out duration-1000 delay-300" x-transition:enter-start="opacity-0 -translate-y-10" x-transition:enter-end="opacity-100 translate-y-0">
@@ -772,13 +771,24 @@
     </div>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
+  <!-- Botón flotante de WhatsApp mejorado -->
   <div class="fixed bottom-6 right-6 z-50">
-    <a href="https://wa.me/5491172186215" target="_blank" 
-       class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl morphing-btn">
-      <i class="fab fa-whatsapp text-white text-2xl"></i>
+    <a href="https://wa.me/5491172186215?text=¡Hola! Me interesa conocer más sobre los servicios de Agencia Nexo Orus" target="_blank" 
+       class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl morphing-btn pulse-green group">
+      <i class="fab fa-whatsapp text-white text-2xl group-hover:scale-110 transition-transform"></i>
     </a>
   </div>
+
+  <style>
+    .pulse-green {
+      animation: pulse-green 2s infinite;
+    }
+    
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+    }
+  </style>
 
 </body>
 </html>
